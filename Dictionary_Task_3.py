@@ -10,21 +10,11 @@ num_string = '123432343212432545624321341243235'
 
 
 def count_int(num_string):
-    num_list = list(num_string)
-    num_dict = {}
-    for i in num_list:
-        num_dict[i] = num_dict.setdefault(i, 0) + 1
-    print(num_dict)
-    new_dict = dict(sorted(num_dict.items(), key=lambda item: item[1], reverse=True))
-    result_dict = {}
-    count = 0
-    for key in new_dict:
-        result_dict[key] = new_dict[key]
-        count += 1
-        if count == 3:
-            break
+    new_dict = {int(item): num_string.count(item) for item in num_string}
     print(new_dict)
-    print(result_dict)
+    new_list = sorted(new_dict.items(), key=lambda el: el[1], reverse=True)
+    print(new_list)
+    return dict(new_list[:3])
 
 
-count_int(num_string)
+print(count_int(num_string))
