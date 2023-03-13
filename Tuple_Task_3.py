@@ -7,7 +7,7 @@ print(numbers)
 
 
 def sieve(list_):
-    return tuple(sorted(list(set(list_))))
+    return tuple(sorted(list(set(list_)), reverse=True))
 
 
 print(sieve(numbers))
